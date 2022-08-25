@@ -1,0 +1,258 @@
+<html>
+    <head>
+        <title>List</title>
+        <link rel="stylesheet" href="inde.css">
+        <link rel="import" href="script.html">
+    </head>
+
+    <body style="background-color:  #ffffff">
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <input type="text" id='myInput' onkeyup='searchTable()' placeholder="Search Books">
+          </div>
+          <br>
+          <br>
+          <div class="flex-container">
+<div id ="parent">
+<table id='myTable'>
+    <thead>
+    <th>
+        Book Name
+    </th>
+    <th>
+        Author
+    </th>
+    <th>
+        Subject
+    </th>
+    <th>
+        Published Date
+    </th>
+    </thead>
+   <tr class = "Thriller">
+      <td>Harry Potter and Philosopher's Stone</td>
+      <td>JK Rowling</td>
+      <td>Thriller</td>
+      <td>1996</td>
+   </tr>
+   <tr class = "Thriller">
+    <td>Harry Potter and Chambers of Secrets</td>
+    <td>JK Rowling</td>
+    <td>Thriller</td>
+    <td>1998</td>
+ </tr>
+ <tr class = "Thriller">
+    <td>Harry Potter and Prisoner of Azkaban</td>
+    <td>JK Rowling</td>
+    <td>Thriller</td>
+    <td>1999</td>
+ </tr><tr class = "Fiction">
+    <td>Sammy Keyes and the Art of Deception</td>
+    <td>Wendelin Van Draanen</td>
+    <td>Fiction</td>
+    <td>2009</td>
+ </tr><tr class = "Romance">
+    <td>The Boston Directory</td>
+    <td>Emil</td>
+    <td>Romance</td>
+    <td>1865</td>
+ </tr><tr class="Action">
+    <td>Inward Journey</td>
+    <td>Howard Thurman</td>
+    <td>Action</td>
+    <td>2001</td>
+ </tr><tr class="Thriller">
+    <td>Angels</td>
+    <td>Denis Johnson</td>
+    <td>Thriller</td>
+    <td>1996</td>
+ </tr><tr class="History">
+    <td>Lord of Souls</td>
+    <td>Vijay</td>
+    <td>History</td>
+    <td>1996</td>
+ </tr><tr class="Sci-Fiction">
+    <td>Lord of Rings</td>
+    <td>Yashvandh</td>
+    <td>Sci-Fiction</td>
+    <td>2009</td>
+ </tr>
+ <tr class="Romance">
+    <td>Ugly Love: A Novel</td>
+    <td>Colleen</td>
+    <td>Romance</td>
+    <td>2000</td>
+ </tr>
+ <tr class="Romance">
+    <td>Beach Read</td>
+    <td>Emily</td>
+    <td>Romance</td>
+    <td>2002</td>
+ </tr>
+ <tr class="History">
+    <td>Harry Potter and Philosopher's Stone</td>
+    <td>JK Rowling</td>
+    <td>Thriller</td>
+    <td>1996</td>
+ </tr>
+ <tr class="History">
+    <td id = "book">The Guns of August</td>
+    <td id ="author">Barbara W. Tuchman</td>
+    <td id = "subject">History</td>
+    <td id="year">1962</td>
+
+ </tr>
+ <tr class="History">
+    <td>The Liberation Trilogy</td>
+    <td>Rick Atkinson</td>
+    <td>History</td>
+    <td>2003</td>
+ </tr>
+ <tr class="Action">
+    <td>Treasure Island</td>
+    <td>Robert</td>
+    <td>Action</td>
+    <td>2003</td>
+ </tr>
+ <tr class="History">
+    <td>Game of Thrones</td>
+    <td>George</td>
+    <td>Action</td>
+    <td>2006</td>
+ </tr>
+</table>
+</div>
+
+<div>
+    <select name="authors" id="authors" onchange="aut()">
+        <option value="JK">JK Rowling</option>
+        <option value="Denis">Denis Johnson</option>
+        <option value="George">George</option>
+        <option value="Robert">Robert</option>
+      </select>
+      
+        <h2> Category </h2>
+        <table>
+        <thead>
+            <th>Thriller</th>
+            <th>Romance</th>
+            <th>Sci-Fiction</th>
+            <th>History</th>
+            <th>Action</th>
+        </thead>
+        <td> <p id="count1"></td>
+        <td> <p id="count2"></td>
+        <td id="count3"></td>
+        <td id="count4"></td>
+        <td id="count5"></td>
+    </table>
+
+    
+    <!--
+        <h2>Published Year</h2>
+        <button>2001-2010</button>
+        <button>1990-2000</button>
+        <h2>Total Number of Books</h2>
+    -->
+</div>
+</div>
+
+<script>
+    $(document).ready(function(){
+      $("button").click(function(){
+          
+        // Select all the rows in the table
+        // and get the count of the selected elements
+        var rowCount = $("#myTable").length;
+        alert(rowCount); 
+      });
+    });
+  </script> 
+</body>
+
+<script>
+
+    function aut(){
+        var obj=document.getElementById("authors");
+        alert(obj.selectedIndex);
+        var getValue = obj.options[obj.selectedIndex]. value; 
+        alert(getValue);
+    }
+
+    var parent1 = document.getElementById("parent");
+    var nodesSameClass1 = parent1.getElementsByClassName("Thriller");
+    console.log(nodesSameClass1.length);
+    document.getElementById("count1").innerHTML=nodesSameClass1.length;
+
+    var parent2 = document.getElementById("parent");
+    var nodesSameClass2 = parent2.getElementsByClassName("Romance");
+    console.log(nodesSameClass2.length);
+    document.getElementById("count2").innerHTML=nodesSameClass2.length;
+
+    var parent3 = document.getElementById("parent");
+    var nodesSameClass3 = parent3.getElementsByClassName("Sci-Fiction");
+    console.log(nodesSameClass3.length);
+    document.getElementById("count3").innerHTML=nodesSameClass3.length;
+
+    var parent4 = document.getElementById("parent");
+    var nodesSameClass4 = parent4.getElementsByClassName("History");
+    console.log(nodesSameClass4.length);
+    document.getElementById("count4").innerHTML=nodesSameClass4.length;
+
+    var parent5 = document.getElementById("parent");
+    var nodesSameClass5 = parent5.getElementsByClassName("Action");
+    console.log(nodesSameClass5.length);
+    document.getElementById("count5").innerHTML=nodesSameClass5.length;
+
+
+function searchTable() {
+    var input, filter, found, table, tr, td, i, j;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                found = true;
+            }
+        }
+        if (found) {
+            tr[i].style.display = "";
+            found = false;
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
+function searchpage() {
+    doSearch(document.getElementById("MySearch").value);
+}
+
+
+function doSearch(text) {
+var catclass = document.getElementById("subject").options;    
+var sel;
+var classname;
+var catselect;
+if (window.find && window.getSelection) {
+    sel = window.getSelection();
+    window.find(text);
+    var classname = sel.anchorNode.parentElement.className;
+    var catselect = catclass[document.getElementById("subject").selectedIndex].text;
+    while (classname !== catselect) {
+        if (sel.rangeCount > 0) {
+            if (sel.anchorNode.parentElement.className == catclass[document.getElementById("subject").selectedIndex].text) {
+                break;
+            }
+            else {
+                doSearch(text);
+            }
+        }
+    }
+}
+}
+</script>
